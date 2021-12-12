@@ -1,8 +1,14 @@
 FROM nikolaik/python-nodejs:latest
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install nodejs -y
+RUN apt-get update && \
+  apt-get install -y \
+  neofetch \
+  chromium \
+  ffmpeg \
+  wget \
+  mc \
+  imagemagick && \
+  rm -rf /var/lib/apt/lists/*
 
 COPY package.json .
 RUN npm install
@@ -14,6 +20,9 @@ WORKDIR /inites
 COPY . /inites
 ENV TZ=Asia/Jakarta
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN npm install
+
 EXPOSE 8080
+
 CMD ["npm", "start"]
