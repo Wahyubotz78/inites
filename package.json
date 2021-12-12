@@ -2,9 +2,9 @@
   "name": "api-velgrynd",
   "version": "1.1.0",
   "description": "My Rest Api",
-  "main": "nodemon index.js",
+  "main": "node index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
